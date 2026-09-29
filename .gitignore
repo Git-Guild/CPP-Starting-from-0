@@ -1,1 +1,32 @@
+# IDE / Editor
 .vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Compiled binaries
+*.exe
+*.out
+*.o
+*.obj
+*.a
+*.so
+*.dll
+*.dylib
+
+# Build directories
+build/
+bin/
+obj/
+
+# Debug files
+*.dSYM/
+*.pdb
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Compiled dependencies
+*.gch
