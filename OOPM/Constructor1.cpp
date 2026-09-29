@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+class Employee{
+public:
+    string Name;
+    string Company;
+    int Age;
+
+// Constructor is a special type of method that is invoked everytime an object is created
+
+// Default constructor: automatically egnerated by compiler
+
+    /*
+    * RULE 1: Same name as class
+    * RULE 2: Must be public
+    * RULE 3: No return type
+    */
+    
+    void Introduce(){
+        cout << "Name:" << Name << endl;
+        cout << "Company:" << Company << endl;
+        cout << "Age:" << Age << endl;
+    }
+
+    Employee(string name, string company, int age){
+        Name = name;
+        Company = company;
+        Age = age;
+    }
+    
+};
+
+int main() {
+    Employee emp1 = Employee("Yuvraj", "Amazon", 19); // Constructor is invoked here
+    
+    emp1.Introduce();
+    
+    Employee emp2 = Employee("Raj", "Google", 29);
+    
+    emp2.Introduce();
+    
+    return 0;
+}
