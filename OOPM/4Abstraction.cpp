@@ -1,8 +1,9 @@
+// TODO: Abstraction is the way to show only the necessary information to the user like a TV button remote not the wiring of PCB inside it
 #include <iostream>
 #include <memory> // Required for modern C++ Smart Pointers (std::unique_ptr)
 using namespace std;
 
-// 1. THE ABSTRACT CLASS (INTERFACE)
+// 1. THE ABSTRACT 
 class AskforPromotion {
 public:
     // Pure virtual function makes this an Abstract Class.
@@ -14,8 +15,9 @@ public:
     virtual ~AskforPromotion() {} 
 };
 
-// 2. THE DERIVED CLASS (IMPLEMENTATION)
-class Employee : public AskforPromotion {
+// 2. THE DERIVED CLASS
+class Employee : public AskforPromotion { //! : is used for inheritance and we can choose which data the inherited class can have access of parent class by public or private or protected
+
 public:
     string Name;
     string Company;
@@ -33,6 +35,7 @@ public:
     }
 
     // Overriding the abstract class contract
+    //! Overriding the function is done by using the same function name but with a differnet code block
     void CheckPromotion() override { 
         if (Age >= 30)
             cout << "[PROMOTION]: " << Name << " is eligible for promotion!" << endl;
@@ -41,18 +44,27 @@ public:
     }
 };
 
-// 3. MAIN EXECUTION (DEMONSTRATING SYNTAXES)
+// 3. MAIN EXECUTION
 int main() {
     // Standard Stack-allocated object
     Employee emp1("Raj", "Microsoft", 30);
     emp1.Introduce();
 
+    //! BASIC POINTER KNOWLEDGE IS NECESSARY FOR BELOW CODE
+    /*
+    ! pointers store the memory address of the object rather than direct value
+    * pointers are used to access the data of the object without knowing the exact value of the object
+    & this helps in less memory usage
+    ! C++ syntax
+    */
 
     // APPROACH A: The Raw Pointer Syntax
-    // 1. We create a pointer typed to the Base abstract class (*).
-    // 2. We point it to the memory address (&) of our local Employee object.
+    // 1. We create a pointer 'rawPointer' of type 'AskforPromotion*' (Base Class).
+    // 2. We set it to store the memory address of 'emp1' using the '&' symbol. * for declaring pointer and & for getting the address of the object
     // 3. We use the arrow operator (->) to call the overridden method.
-    AskforPromotion* rawPointer = &emp1;
+    //* refer the most as is easier and widely used
+
+    AskforPromotion* rawPointer = &emp1; //* Raw pointer stores the value of the address of the object rather than direct value
     
     cout << "A) Using Raw Pointer (* and &):" << endl;
     rawPointer->CheckPromotion(); 
@@ -63,11 +75,22 @@ int main() {
     // 1. We create an alias/reference (&) typed to the Base abstract class.
     // 2. We bind it directly to 'emp1' without needing the address-of (&) symbol.
     // 3. We use standard dot notation (.). References cannot be empty (nullptr).
+    //! DO NOT USE FOR NULL POINTERS (nullptr)
+
     AskforPromotion& promoRef = emp1;
     
     cout << "B) Using C++ References (& and .):" << endl;
     promoRef.CheckPromotion(); 
     cout << endl;
+
+/*
+! Stack vs. Heap Memory:
+
+* Stack: Fast, automatic memory allocation. Variables created here are automatically erased when the function ends.   
+
+* Heap: Dynamic memory allocation where objects persist until explicitly deleted.
+
+*/
 
 
     // APPROACH C: Modern C++ Smart Pointer (Recommended for Heap Objects)
@@ -76,6 +99,8 @@ int main() {
     // 3. It uses the arrow operator (->) to access methods polymorphically.
     // 4. CRITICAL ADVANTAGE: When 'smartPtr' goes out of scope at the end of main,
     //    it automatically deletes the heap memory. Zero memory leaks!
+    //* Try to use the most of this in real life projects, better error handling and memory allocation, less human error
+
     std::unique_ptr<AskforPromotion> smartPtr = std::make_unique<Employee>("Sriya", "Google", 25);
     
     cout << "C) Using Modern Smart Pointers (std::unique_ptr):" << endl;
@@ -88,6 +113,9 @@ int main() {
     // 2. It returns a raw memory address, which we catch with an abstract pointer.
     // 3. CRITICAL DANGER: If you forget to call 'delete', this memory stays 
     //    trapped until the program closes (Memory Leak). Discouraged in Modern C++.
+    //* But kind of will be expected by you to use in exams because teachers are outdated
+    //! NEVER USE IN REAL LIFE
+
     AskforPromotion* legacyHeapPtr = new Employee("Amit", "Apple", 35);
     
     cout << "D) Using Legacy Raw Heap Allocation (new/delete):" << endl;
