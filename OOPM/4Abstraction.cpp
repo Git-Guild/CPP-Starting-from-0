@@ -1,4 +1,5 @@
 // TODO: Abstraction is the way to show only the necessary information to the user like a TV button remote not the wiring of PCB inside it
+
 #include <iostream>
 #include <memory> // Required for modern C++ Smart Pointers (std::unique_ptr)
 using namespace std;
@@ -25,9 +26,9 @@ public:
 
     // Constructor to easily create employees with values
     Employee(string name, string company, int age) {
-        Name = name;
-        Company = company;
-        Age = age;
+        Name = name; //! I used different variable names in parameter (name instead of Name)
+        Company = company; //* If you use the same variable name, it will throw a shadow bug
+        Age = age; //& To use the same variable name you must use this-> (refer to _1PRAC)
     }
 
     void Introduce() {
