@@ -19,6 +19,7 @@ These videos walk through the concepts covered in this repository. Follow along 
 CPP-Starting-from-0/
 ├── Learning/          # Core C++ concept examples, ordered by topic
 ├── OOPM/              # Object-Oriented Programming & Modularity examples
+├── Basic DSA/         # Data structures (linked lists, and more over time)
 └── Projects/          # Mini-projects combining everything learned
 ```
 
@@ -52,7 +53,17 @@ Follow the files in order to progress from basics to more advanced concepts.
 | `Getters and Setters (Encapsulation).cpp` | Getters, setters, encapsulation principles |
 | `Abstraction.cpp` | Abstract classes, hiding implementation details |
 
-### 3. Projects — Practice Projects
+### 3. Basic DSA — Data Structures
+
+Start after `Learning/` files 6–8 (pointers, structs, classes). See [`Basic DSA/README.md`](Basic%20DSA/README.md) for the full guide.
+
+| File | Topics Covered |
+|------|----------------|
+| `Linked List/Insertion/InsertAtFirst.cpp` | Node anatomy, head pointer, `Node *&head` (reference-to-pointer), insert at front O(1), traversal, `new`/`delete` and memory leaks, `nullptr` |
+| `Linked List/Insertion/InsertAtLast.cpp` | Empty-list handling, walking to the last node, append O(n) |
+| `Linked List/Insertion/InsertAtPos.cpp` | 1-indexed insertion, bounds checking, splicing nodes, not leaking memory on error paths |
+
+### 4. Projects — Practice Projects
 
 | File | Description |
 |------|-------------|
