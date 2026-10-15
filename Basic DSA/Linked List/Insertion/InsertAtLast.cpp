@@ -57,15 +57,11 @@ int main() {
     cout << "Linked List: ";
     printList(head);
 
-    // Same heap cleanup as InsertAtFirst.cpp
-    while (head != nullptr) {
-        Node *temp = head;
-        head = head->next;
-        delete temp;
-    }
-
     return 0;
 }
+
+// The values passed to insertAtLast are hardcoded (manual representation) —
+// you can make it dynamic by taking them from the user (cin).
 
 /*
 Output:

@@ -4,7 +4,6 @@
 using namespace std;
 
 //! struct = a class where everything is public by default — perfect for a simple Node (you can use class as well with some tweaks)
-//* A node holds two things: its own value (data) and a link to the next node (next)
 struct Node {
     int data;
     Node *next;
@@ -14,9 +13,6 @@ struct Node {
     Node(int data) : data(data), next(nullptr) {}
 };
 
-//! The head is just a pointer to the first node; nullptr means "empty list"
-//* nullptr (Modern C++, since C++11) replaces the old NULL
-//* Java/JS use `null` — that does NOT exist in C++, writing it won't compile.
 
 /* 
 Node *&head is a REFERENCE to the head pointer, not a copy of it.
@@ -29,14 +25,13 @@ void insertAtFirst(Node *&head, int data) {
     head = newNode;                 // head now points at the new node
 }
 
-// Walks the list node by node until it hits nullptr (end of the list)
 void printList(Node *head) {
     Node *temp = head;
     while (temp != nullptr) {
         cout << temp->data << " -> ";
-        temp = temp->next; // hop to the next node
+        temp = temp->next;
     }
-    cout << "NULL" << endl; // printed once, after the loop
+    cout << "NULL" << endl;
 }
 
 int main() {
@@ -52,16 +47,11 @@ int main() {
     cout << "Linked List: ";
     printList(head);
 
-    // `new` allocates on the heap — C++ never frees it for you.
-    // Delete every node by hand or the memory is "leaked".
-    while (head != nullptr) {
-        Node *temp = head;  // remember the node we are about to delete
-        head = head->next;  // move head forward FIRST...
-        delete temp;        // ...only then delete the old node
-    }
-
     return 0;
 }
+
+// The values passed to insertAtFirst are hardcoded (manual representation) —
+// you can make it dynamic by taking them from the user (cin).
 
 /*
 Output:
