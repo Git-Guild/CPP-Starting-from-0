@@ -48,20 +48,33 @@ Follow the files in order to progress from basics to more advanced concepts.
 
 | File | Topics Covered |
 |------|----------------|
-| `Classes and Objects.cpp` | Defining classes, creating objects, public members |
-| `Constructor1.cpp` | Constructors, parameterized initialization |
-| `Getters and Setters (Encapsulation).cpp` | Getters, setters, encapsulation principles |
-| `Abstraction.cpp` | Abstract classes, hiding implementation details |
+| `1Classes and Objects.cpp` | Defining classes, creating objects, public members |
+| `2Constructor.cpp` | Constructors, parameterized initialization |
+| `3Getters and Setters (Encapsulation).cpp` | Getters, setters, encapsulation principles |
+| `4Abstraction.cpp` | Abstract classes, hiding implementation details, smart pointers |
+| `5Inheritance.cpp` | Base and derived classes, `protected`, pure virtual functions |
+| `6Polymorphism.cpp` | `virtual` functions, runtime polymorphism |
+| `7Operator_Overloading.cpp` | Making operators work on your own classes |
+| `8Friend.cpp` | Friend functions and friend classes |
+| `9More_About_Constructors.cpp` | Default vs parameterized constructors, copy/move semantics (`std::move`), releasing owned heap memory |
+| `10Interfaces.cpp` | Interfaces built from pure virtual functions, virtual destructors |
+| `Practice/ElecBill.cpp` | Constructor-based initialization in a small program (electricity bill) |
+| `Practice/Operator_Overloading_using_Friend.cpp` | Overloading `+` for a `Complex` class with a friend function |
 
 ### 3. Basic DSA — Data Structures
 
-Start after `Learning/` files 6–8 (pointers, structs, classes). See [`Basic DSA/README.md`](Basic%20DSA/README.md) for the full guide.
+Start after `Learning/` files 6–8 (pointers, structs, classes). See [`Basic DSA/README.md`](Basic%20DSA/README.md) for the full guide, and [`Basic DSA/Linked List/README.md`](Basic%20DSA/Linked%20List/README.md) for the concept deep-dive and verified output of every file.
 
 | File | Topics Covered |
 |------|----------------|
-| `Linked List/Insertion/InsertAtFirst.cpp` | Node anatomy, head pointer, `Node *&head` (reference-to-pointer), insert at front O(1), traversal, `new`/`delete` and memory leaks, `nullptr` |
+| `Linked List/BasicLinkedList.cpp` | Manual node creation and linking, `class Node` vs `struct`, `this`, `nullptr` vs `NULL`, traversal, freeing the heap with a `delete` loop |
+| `Linked List/LinkedList.cpp` | The practical approach: wrapping the list in a `LinkedList` class — constructor for `head`, `add()` and `print()` methods, objects in `main` |
+| `Linked List/Insertion/InsertAtFirst.cpp` | Node anatomy, head pointer, `Node *&head` (reference-to-pointer), insert at front O(1), traversal, `new`, `nullptr` |
 | `Linked List/Insertion/InsertAtLast.cpp` | Empty-list handling, walking to the last node, append O(n) |
-| `Linked List/Insertion/InsertAtPos.cpp` | 1-indexed insertion, bounds checking, splicing nodes, not leaking memory on error paths |
+| `Linked List/Insertion/InsertAtPos.cpp` | 1-indexed insertion, bounds checking, splicing nodes |
+| `Linked List/Deletion/delAtBegin.cpp` | Delete at front: empty-list guard, moving `head` forward before `delete`, O(1) |
+
+Read them in that order — each file builds on the one before it.
 
 ### 4. Projects — Practice Projects
 

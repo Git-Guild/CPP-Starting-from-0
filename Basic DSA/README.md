@@ -8,7 +8,8 @@ Expect plain, beginner-friendly code with comments that explain the *why*, not j
 
 | Data Structure | Folder | What you'll learn |
 |----------------|--------|-------------------|
-| [Linked List](Linked%20List/README.md) | `Linked List/` | Nodes, head pointers, pointer manipulation, insert at first / last / position, traversal, heap memory (`new`/`delete`) |
+| [Linked List](Linked%20List/README.md) | `Linked List/` | Nodes, head pointers, pointer manipulation, two ways to build a list (manual linking and a `LinkedList` class), insert at first / last / position, delete at front, traversal, heap memory (`new`/`delete`) |
+| ↳ operations | `Linked List/Insertion/`, `Linked List/Deletion/` | One `.cpp` per operation — insert at first, insert at last, insert at position, delete at the beginning |
 
 ## Prerequisites
 
@@ -42,10 +43,10 @@ Or open any file in VS Code and press `Ctrl+F5` — see the [root README](../REA
 
 ## Conventions in This Folder
 
-- **One operation per file.** Each `.cpp` demonstrates exactly one idea (e.g., insert at last).
-- **Self-contained files.** Every file redefines `Node`, `printList`, and the cleanup loop so it compiles alone. Repeated code has no re-explanations — concepts are taught only in the first file that needs them, then the later files say "see `InsertAtFirst.cpp`".
-- **Modern C++ (C++17).** `nullptr` instead of `NULL`, member initializer lists, `struct` for plain data.
-- **Actual output included.** Each file ends with a comment block showing its real, verified output, and every README shows it too.
-- **Every file frees its own heap memory.** Linked lists live on the heap via `new`, so each `main()` ends with a cleanup loop — see the Linked List README for why.
+- **One operation per file.** Each `.cpp` demonstrates exactly one idea (e.g., insert at last, delete at the beginning).
+- **Self-contained files.** Every file redefines its own `Node` plus its helpers (`printList`, or the `LinkedList` class) so it compiles alone. Repeated code has no re-explanations — concepts are taught only in the first file that needs them, then the later files say "see `InsertAtFirst.cpp`".
+- **Modern C++ (C++17).** `nullptr` instead of `NULL`, member initializer lists, `struct` for plain data. (The class-based files use `NULL` and `this->` — both styles appear in real code, so you should be able to read either.)
+- **Actual output included.** The [Linked List README](Linked%20List/README.md) shows the real console output of every file, and the files that document it inline keep it in a comment block at the end.
+- **Heap memory is the whole point.** Linked lists live on the heap via `new`, so the basics file ends with the manual cleanup loop (`delete` every node before the program ends). The later operation-focused files stop right after printing so each file stays on one idea — in real code a destructor or a smart pointer does that cleanup for you (see `OOPM/4Abstraction.cpp` and `OOPM/9More_About_Constructors.cpp`).
 
 More data structures will be added here as separate subfolders over time — each with its own README explaining the concept.

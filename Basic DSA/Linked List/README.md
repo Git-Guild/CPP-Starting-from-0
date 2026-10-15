@@ -151,18 +151,57 @@ reserve new memory      one contiguous block      never — nodes fit anywhere
 
 ## Files
 
-The *why* is above. The *how* lives only in the code — every `.cpp` is commented, self-contained (it redefines `Node`, `printList`, and the cleanup loop), and compiles on its own.
+The *why* is above. The *how* lives only in the code — every `.cpp` is self-contained (it redefines `Node` and its own helpers) and compiles on its own.
 
 | # | File | Teaches | Cost |
 |---|------|---------|------|
-| 1 | [`Insertion/InsertAtFirst.cpp`](Insertion/InsertAtFirst.cpp) | Node anatomy, `head`, `new`/`delete`, `Node *&head`, traversal | O(1) |
-| 2 | [`Insertion/InsertAtLast.cpp`](Insertion/InsertAtLast.cpp) | Empty-list branch, walking to the last node | O(n) |
-| 3 | [`Insertion/InsertAtPos.cpp`](Insertion/InsertAtPos.cpp) | 1-indexed positions, bounds checking, splicing, no leaks | O(pos) |
+| 1 | [`BasicLinkedList.cpp`](BasicLinkedList.cpp) | Manual node creation and linking, `class Node` vs `struct`, `this`, `nullptr` vs `NULL`, traversal, the `delete` cleanup loop | one-time setup |
+| 2 | [`LinkedList.cpp`](LinkedList.cpp) | The practical approach: a `LinkedList` class with its own constructor (empty list), `add()` and `print()` methods, objects in `main` | append O(n) |
+| 3 | [`Insertion/InsertAtFirst.cpp`](Insertion/InsertAtFirst.cpp) | Node anatomy, `head`, `new`, `Node *&head`, traversal | O(1) |
+| 4 | [`Insertion/InsertAtLast.cpp`](Insertion/InsertAtLast.cpp) | Empty-list branch, walking to the last node | O(n) |
+| 5 | [`Insertion/InsertAtPos.cpp`](Insertion/InsertAtPos.cpp) | 1-indexed positions, bounds checking, splicing | O(pos) |
+| 6 | [`Deletion/delAtBegin.cpp`](Deletion/delAtBegin.cpp) | Delete at the front on the `LinkedList` class: empty-list guard, move `head` forward **first**, then `delete` the old node | O(1) |
 
-**Read them in that order** — each file only comments what is *new*; anything already covered in file 1 is left uncommented afterwards.
+**Read them in that order** — files 3–5 only comment what is *new*; anything already covered earlier is left uncommented afterwards. File 6 reuses the class from file 2.
 
 > The duplicated setup across files is intentional for standalone compiling, not a pattern to copy into real projects.
 
+## Output
+
+Real console output of every file (the files that document it inline repeat it in a comment block at the end):
+
+**`BasicLinkedList.cpp`**
+```
+1->2->3->Null
+```
+
+**`LinkedList.cpp`**
+```
+1->2->3->4->5->Null
+2->Null
+```
+
+**`Insertion/InsertAtFirst.cpp`** — inserting 1..5 at the front reverses the order
+```
+Linked List: 5 -> 4 -> 3 -> 2 -> 1 -> NULL
+```
+
+**`Insertion/InsertAtLast.cpp`** — appending keeps the insertion order
+```
+Linked List: 1 -> 2 -> 3 -> 4 -> 5 -> NULL
+```
+
+**`Insertion/InsertAtPos.cpp`** — position 7 is past the end of a 5-node list
+```
+Position out of bounds!
+Linked List: 10 -> 20 -> 40 -> 30 -> 50 -> NULL
+```
+
+**`Deletion/delAtBegin.cpp`** — the list `1 2 3 4 5` loses its head
+```
+2 3 4 5
+```
+
 ## Next Steps
 
-Once these three are comfortable: **deletion**, **searching**, **reversing**, a **`tail` pointer** (O(1) append), then a **doubly linked list** (`prev` in each node). Write them from scratch before looking up solutions.
+Once these are comfortable: **deleting at the end and at a position**, **searching**, **reversing**, a **`tail` pointer** (O(1) append), then a **doubly linked list** (`prev` in each node). Write them from scratch before looking up solutions.
