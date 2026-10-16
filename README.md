@@ -46,18 +46,39 @@ Follow the files in order to progress from basics to more advanced concepts.
 
 ### 2. OOPM — Object-Oriented Programming & Modularity
 
+Organized into three phases of increasing difficulty. Complete them in order.
+
+**Phase 1 — Fundamentals**
+
 | File | Topics Covered |
 |------|----------------|
-| `1Classes and Objects.cpp` | Defining classes, creating objects, public members |
-| `2Constructor.cpp` | Constructors, parameterized initialization |
-| `3Getters and Setters (Encapsulation).cpp` | Getters, setters, encapsulation principles |
-| `4Abstraction.cpp` | Abstract classes, hiding implementation details, smart pointers |
-| `5Inheritance.cpp` | Base and derived classes, `protected`, pure virtual functions |
-| `6Polymorphism.cpp` | `virtual` functions, runtime polymorphism |
-| `7Operator_Overloading.cpp` | Making operators work on your own classes |
-| `8Friend.cpp` | Friend functions and friend classes |
-| `9More_About_Constructors.cpp` | Default vs parameterized constructors, copy/move semantics (`std::move`), releasing owned heap memory |
-| `10Interfaces.cpp` | Interfaces built from pure virtual functions, virtual destructors |
+| `Phase 1/1Classes and Objects.cpp` | Defining classes, creating objects, public members |
+| `Phase 1/2Constructor.cpp` | Constructors, parameterized initialization |
+| `Phase 1/3Encapsulation.cpp` | Getters, setters, encapsulation principles |
+| `Phase 1/4Polymorphism.cpp` | `virtual` functions, runtime polymorphism, base-class pointers |
+
+**Phase 2 — Pillars**
+
+| File | Topics Covered |
+|------|----------------|
+| `Phase 2/5Abstraction.cpp` | Abstract classes, pure virtual functions, interfaces, smart pointers |
+| `Phase 2/6Inheritance.cpp` | Base and derived classes, `protected`, access specifiers, multilevel inheritance |
+| `Phase 2/7Static_Members.cpp` | Static data members, static member functions, class-level state |
+
+**Phase 3 — Advanced**
+
+| File | Topics Covered |
+|------|----------------|
+| `Phase 3/7Operator_Overloading.cpp` | Making operators (`+`, `==`, `+=`, `-=`, `<<`) work on your own classes |
+| `Phase 3/8Friend.cpp` | Friend functions and friend classes |
+| `Phase 3/9More_About_Constructors.cpp` | Default vs parameterized constructors, copy/move semantics (`std::move`), releasing owned heap memory |
+| `Phase 3/Error_Handling.cpp` | `try`/`throw`/`catch`, the full `std::exception` hierarchy, custom exceptions, `noexcept` |
+| `Phase 3/ErrorHandling.md` | Written reference: exception hierarchy, common error codes, best practices |
+
+**Practice**
+
+| File | Topics Covered |
+|------|----------------|
 | `Practice/ElecBill.cpp` | Constructor-based initialization in a small program (electricity bill) |
 | `Practice/Operator_Overloading_using_Friend.cpp` | Overloading `+` for a `Complex` class with a friend function |
 
