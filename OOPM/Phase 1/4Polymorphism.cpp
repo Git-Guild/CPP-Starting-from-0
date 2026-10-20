@@ -28,10 +28,10 @@ public:
         cout << Name << " is checking emails and performing general tasks." << endl;
     }
 
-    virtual ~Employee() {}
+    virtual ~Employee() {} // virtual destructor because we want to call the destructor of the base and derived class both
 };
 
-class Dev : public Employee {
+class Dev : public Employee { //we have used inheritance here we will see how it works in next phase, for now just know that we want Dev to use public properties of Employee therefore we used : public Employee 
 public:
     string favLanguage;
 
