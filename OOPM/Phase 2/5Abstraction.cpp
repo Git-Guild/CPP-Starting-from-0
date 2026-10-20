@@ -94,6 +94,8 @@ int main() {
 
 * Heap: Dynamic memory allocation where objects persist until explicitly deleted.
 
+& We use heap for larger database and stack for smaller database
+
 */
 
     // APPROACH C: Modern C++ Smart Pointer (Recommended for Heap Objects)
