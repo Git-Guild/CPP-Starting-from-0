@@ -149,7 +149,7 @@ int main() {
     //! Heap allocation test: Objects created with 'new' are not cleaned up automatically 
     // by the scope, so we must manually call 'delete' to invoke the destructor and free memory.
     AskforPromotion *trial = new Employee("Riya", "TCS", 30);
-    trial->CheckPromotion(); //we also can't directly use . for calling methods here as a pointer needs the same syntax as this-> pointer
+    trial->CheckPromotion(); //we also can't directly use . for calling methods here as a "new pointer" needs the same syntax as "this-> pointer"
     
     delete trial; // Freeing heap memory and triggering the destructor, without this it is not deleted
     //! Your Task: Try implementing this using smart pointers learned in 5Abstraction.cpp (std::unique_ptr)
