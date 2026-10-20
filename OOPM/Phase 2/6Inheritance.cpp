@@ -5,10 +5,10 @@ class AskforPromotion {
     public:
         virtual void CheckPromotion() = 0; 
         
-        virtual ~AskforPromotion() {} 
+        virtual ~AskforPromotion() {cout << "AskforPromotion destructor called" << endl;} 
 };
 
-class Employee: public AskforPromotion{
+class Employee: public AskforPromotion{ //* class derivedClass : accessSpecifier baseClass is the basic syntax of inheritance
     private:
         string Name;
         string Company;
@@ -58,6 +58,8 @@ class Employee: public AskforPromotion{
             else
                 cout << "[PROMOTION]: " << Name << " is not eligible yet." << endl; 
         }
+
+        ~Employee(){cout << "Derived Destructor called!" << endl;}
 };
 
 // * 1. Single Inheritance: Dev inherits directly from a single base class (Employee)
@@ -144,5 +146,12 @@ int main() {
     tl.GuideProject();
     tl.CheckPromotion();
 
+    //! Heap allocation test: Objects created with 'new' are not cleaned up automatically 
+    // by the scope, so we must manually call 'delete' to invoke the destructor and free memory.
+    AskforPromotion *trial = new Employee("Riya", "TCS", 30);
+    trial->CheckPromotion(); //we also can't directly use . for calling methods here as a pointer needs the same syntax as this-> pointer
+    
+    delete trial; // Freeing heap memory and triggering the destructor, without this it is not deleted
+    //! Your Task: Try implementing this using smart pointers learned in 5Abstraction.cpp (std::unique_ptr)
     return 0;
 }
