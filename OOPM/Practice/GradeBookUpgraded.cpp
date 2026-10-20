@@ -12,6 +12,7 @@ class GradeBook{
         GradeBook(int size){
             this->size = size;
         }
+
         bool addScore(double s){
             if(scores.size() < size){
                 scores.push_back(s);
@@ -19,6 +20,7 @@ class GradeBook{
             }
             return false;
         }
+
         void displayScores(){
             if (scores.empty()) {
                 cout << "No scores recorded yet.";
@@ -28,6 +30,7 @@ class GradeBook{
                 cout << "Score " << i+1 << " is:" << scores[i] <<endl;
             }
         }
+
         double greatestScore(){
             if (scores.empty()) return 0;
             double max = scores[0];
@@ -38,6 +41,7 @@ class GradeBook{
             }
             return max;
         }
+
         double lowestScore(){
             if (scores.empty()) return 0;
             double min = scores[0];
@@ -48,6 +52,7 @@ class GradeBook{
             }
             return min;
         }
+        
         double averageScore(){
             if (scores.empty()) return 0.0;
             double sum = 0;
