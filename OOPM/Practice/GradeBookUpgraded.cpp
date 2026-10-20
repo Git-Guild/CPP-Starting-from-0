@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 class GradeBook{
@@ -52,7 +53,7 @@ class GradeBook{
             }
             return min;
         }
-        
+
         double averageScore(){
             if (scores.empty()) return 0.0;
             double sum = 0;
@@ -60,6 +61,26 @@ class GradeBook{
                 sum += scores[i];
             }
             return sum/scores.size();
+        }
+        
+        double getMode(){
+            if (scores.empty()) return 0.0;
+            double mode = scores[0];
+            int maxCount = 0;
+
+            for(int i = 0; i < scores.size(); i++){
+                int currentCount = 0;
+
+                for(int j = 0; j < scores.size(); j++){
+                    if (scores[j] == scores[i]) currentCount++;
+                }
+
+                if(currentCount > maxCount){
+                    maxCount = currentCount;
+                    mode = scores[i];
+                }
+            }
+            return mode;
         }
 };
 
@@ -81,6 +102,7 @@ int main(){
     cout << "The highest score is: " << book.greatestScore() << endl;
     cout << "The lowest score is: " << book.lowestScore() << endl;
     cout << "The average score is: " << book.averageScore() << endl;
+    cout << "The most occurring score is: " << book.getMode() << endl;
 
     return 0;
 }
