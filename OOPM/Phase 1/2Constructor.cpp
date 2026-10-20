@@ -43,6 +43,10 @@ class Employee{
         this->Age = Age;
     }
 
+    //! Destructor is a special type of method that is invoked everytime an object is destroyed, it runs automatically in background after the object is no longer in use but we can use ~ to create our own destructor
+
+    ~Employee(){cout << "Base Destructor called!" << endl;}
+
     void Introduce(){
         cout << "Name:" << Name << endl;
         cout << "Company:" << Company << endl;
@@ -66,3 +70,8 @@ int main() {
     
     return 0;
 }
+
+/*
+in last there will be 3 output lines mentioning Base Destructor called! this means the 3 objects have been destroyed
+the objects are destroyed in the reverse order of their creation
+*/ 
